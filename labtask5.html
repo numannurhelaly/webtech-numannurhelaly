@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Personal academic profile page for internship review">
+    <meta name="keywords" content="Student, Academic Profile, Internship, HTML5">
+    <meta name="author" content="Your Name">
+    <title>Academic Profile</title>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Your Name</h1>
+        <nav>
+            <a href="#bio">Biography</a> |
+            <a href="#edu">Education</a> |
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Biography Section -->
+        <section id="bio">
+            <h2>Biography</h2>
+            <p>I am a university student interested in web development and internships.</p>
+        </section>
+
+        <!-- Education Section -->
+        <section id="edu">
+            <h2>Education</h2>
+
+            <table border="1">
+                <caption>Academic Qualifications</caption>
+
+                <thead>
+                    <tr>
+                        <th>Degree</th>
+                        <th>Institution</th>
+                        <th>Year</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>BSc in CSE</td>
+                        <td>XYZ University</td>
+                        <td>2026</td>
+                        <td>3.80</td>
+                    </tr>
+                    <tr>
+                        <td>HSC</td>
+                        <td>ABC College</td>
+                        <td>2022</td>
+                        <td>5.00</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Form</h2>
+
+            <form action="#" method="post">
+
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your name"><br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email"><br><br>
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone"
+                       pattern="[0-9]{11}"
+                       placeholder="01XXXXXXXXX"><br><br>
+
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message"
+                          required maxlength="200"
+                          placeholder="Write your message"></textarea><br><br>
+
+                <input type="submit" value="Send">
+
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Your Name | Email: example@email.com</p>
+    </footer>
+
+</body>
+</html>
