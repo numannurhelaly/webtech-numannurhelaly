@@ -1,0 +1,53 @@
+/* Group Selector */
+h1, h2 {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Absolute Units */
+h1 {
+    font-size: 30px;        /* px */
+    margin-bottom: 1cm;     /* cm */
+}
+
+h2 {
+    font-size: 8mm;         /* mm */
+}
+
+/* Relative Units */
+.container {
+    width: 80%;             /* % */
+    height: 30vh;           /* vh */
+    margin: 2em auto;       /* em */
+    padding: 1.5rem;        /* rem */
+    background-color: #f0f8ff;
+}
+
+/* Descendant Selector */
+div p {
+    font-size: 1.2em;
+    color: darkblue;
+}
+
+/* Attribute Selector */
+input[type="text"] {
+    padding: 10px;
+    width: 50vw;            /* vw */
+    border: 2px solid gray;
+}
+
+/* Pseudo Classes */
+
+a:hover {
+    color: red;
+}
+
+input:focus {
+    border-color: green;
+    background-color: #eaffea;
+}
+
+button:active {
+    background-color: black;
+    color: white;
+}

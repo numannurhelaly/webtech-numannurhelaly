@@ -1,0 +1,10 @@
+/* Universal Selector */
+* {
+    font-family: Arial, sans-serif;
+    background-color: #e0e0e0;
+}
+
+/* Element Selector */
+h1 {
+    color: rgb(128, 0, 6);
+}
