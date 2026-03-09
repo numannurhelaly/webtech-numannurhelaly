@@ -1,0 +1,115 @@
+/* Page background */
+
+body{
+font-family: Arial, sans-serif;
+background:#d0e7ff;
+padding:20px;
+}
+
+
+/* Heading */
+
+h1{
+text-align:center;
+color:#0d47a1;
+}
+
+
+/* Form */
+
+form{
+text-align:center;
+margin-bottom:20px;
+}
+
+
+/* Input fields */
+
+input{
+padding:8px;
+margin:5px;
+border-radius:5px;
+border:1px solid #90caf9;
+}
+
+
+/* Buttons */
+
+button{
+padding:8px 12px;
+cursor:pointer;
+background:#1976d2;
+color:white;
+border:none;
+border-radius:5px;
+}
+
+
+/* Student list */
+
+#student-list{
+list-style:none;
+max-width:500px;
+margin:auto;
+padding:0;
+}
+
+
+/* Student card */
+
+.student{
+background:#ffffff;
+padding:10px;
+margin-bottom:10px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+border-radius:8px;
+border:1px solid #90caf9;
+box-shadow:0px 3px 6px rgba(0,0,0,0.1);
+}
+
+
+/* Edit button */
+
+.btn-edit{
+background:#4caf50;
+color:white;
+border:none;
+}
+
+
+/* Delete button */
+
+.btn-delete{
+background:#e53935;
+color:white;
+border:none;
+margin-left:5px;
+}
+
+
+/* Present student */
+
+.present{
+background:#c8e6c9;
+}
+
+
+/* Highlight first student */
+
+.highlight{
+border:3px solid #ff9800;
+background:#fff3cd;
+}
+
+
+/* Text counters */
+
+#total,
+#attendance{
+text-align:center;
+font-weight:bold;
+color:#0d47a1;
+margin-top:10px;
+}
