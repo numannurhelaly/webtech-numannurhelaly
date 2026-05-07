@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Information System</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        button{
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #output{
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Student Information</h2>
+
+    <button onclick="loadStudentData()">
+        Fetch Student Data
+    </button>
+
+    <div id="output"></div>
+
+    <script>
+        function loadStudentData(){
+
+            // Create AJAX request
+            let xhr = new XMLHttpRequest();
+
+            // Configure request
+            xhr.open("GET", "student.php", true);
+
+            // When response is received
+            xhr.onload = function(){
+
+                if(xhr.status == 200){
+
+                    // Convert JSON response to JavaScript object
+                    let student = JSON.parse(xhr.responseText);
+
+                    // Display data
+                    document.getElementById("output").innerHTML = `
+                        <h3>Student Details</h3>
+                        <p><strong>Name:</strong> ${student.name}</p>
+                        <p><strong>ID:</strong> ${student.id}</p>
+                        <p><strong>Department:</strong> ${student.department}</p>
+                        <p><strong>CGPA:</strong> ${student.cgpa}</p>
+                    `;
+                }
+            };
+
+            // Send request
+            xhr.send();
+        }
+    </script>
+
+</body>
+</html>
