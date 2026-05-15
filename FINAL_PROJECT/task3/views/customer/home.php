@@ -158,7 +158,7 @@ $categories = $conn->query("SELECT * FROM categories WHERE parent_id IS NULL");
         <div id="product-list" class="products">
 
         <?php if($products->rowCount() == 0){ ?>
-            <p>❌ No products found</p>
+            <p>No products found</p>
         <?php } ?>
 
         <?php while($row = $products->fetch(PDO::FETCH_ASSOC)){ ?>
