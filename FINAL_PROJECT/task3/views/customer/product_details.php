@@ -20,7 +20,7 @@ if(!$p){
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Product Details</title>
+<title> Product Details</title>
 <link rel="stylesheet" href="../../public/assets/css/style.css">
 </head>
 
