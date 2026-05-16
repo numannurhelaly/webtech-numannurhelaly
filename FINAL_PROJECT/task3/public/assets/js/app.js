@@ -1,36 +1,57 @@
 // 🔍 SEARCH + FILTER (AJAX)
 function searchProducts(){
 
-let q = document.getElementById("search").value;
-let min = document.getElementById("min").value || 0;
-let max = document.getElementById("max").value || 999999;
+let q = document.getElementById("search").value.trim();
 
-// JS validation
-if(isNaN(min) || isNaN(max) || min < 0 || max < 0){
-alert("Invalid price");
-return;
+let min = document.getElementById("min").value;
+let max = document.getElementById("max").value;
+
+// ✅ FIX: proper null handling
+min = min === "" ? "" : parseFloat(min);
+max = max === "" ? "" : parseFloat(max);
+
+// validation
+if((min !== "" && isNaN(min)) || (max !== "" && isNaN(max))){
+    alert("Invalid price");
+    return;
 }
 
+if(min !== "" && max !== "" && min > max){
+    alert("Min price cannot be greater than max price");
+    return;
+}
+
+// 🔥 API CALL
 fetch(`../../api/products/search.php?q=${q}&min=${min}&max=${max}`)
 .then(res => res.json())
 .then(data => {
 
 let html = "";
 
+// ✅ SHOW COUNT (debug + clarity)
+html += `<p style="margin-bottom:10px;">Showing ${data.length} products</p>`;
+
 if(data.length === 0){
-html = "<p>❌ No products found</p>";
+    html += "<p>❌ No products found</p>";
 }else{
 
 data.forEach(p=>{
 html += `
 <div class="card">
+
+<img src="../../public/uploads/products/${p.image_path}" 
+style="width:100%;height:120px;object-fit:cover;border-radius:6px;">
+
 <h4>${p.name}</h4>
+
 <p>💰 ${p.price} ৳</p>
-<img src="../../public/uploads/products/${p.image_path}" width="100">
-<br>
+
 <a href="product_details.php?id=${p.id}">View</a>
+
 <br><br>
+
 <button onclick="addToCart(${p.id})">Add to Cart</button>
+
 </div>
 `;
 });
@@ -43,10 +64,17 @@ document.getElementById("product-list").innerHTML = html;
 .catch(err => {
 console.error("Search error:", err);
 });
+
 }
 
 
-// 🛒 ADD TO CART (AJAX) ✅ FIXED
+// 🔥 IMPORTANT: AUTO TRIGGER ON INPUT
+document.getElementById("search").addEventListener("keyup", searchProducts);
+document.getElementById("min").addEventListener("input", searchProducts);
+document.getElementById("max").addEventListener("input", searchProducts);
+
+
+// 🛒 ADD TO CART
 function addToCart(id){
 
 fetch("../../api/cart/add.php",{
@@ -54,7 +82,7 @@ method:"POST",
 headers:{'Content-Type':'application/x-www-form-urlencoded'},
 body:`product_id=${id}`
 })
-.then(res => res.json()) // 🔥 IMPORTANT FIX
+.then(res => res.json())
 .then(data => {
 
 if(data.error){
@@ -71,7 +99,7 @@ console.error("Cart error:", err);
 }
 
 
-// 🔄 UPDATE CART (LIVE, NO RELOAD)
+// 🔄 UPDATE CART
 function updateCartLive(id, qty){
 
 if(qty <= 0){
@@ -92,7 +120,6 @@ alert(data.error);
 return;
 }
 
-// subtotal update
 let subEl = document.getElementById(`sub-${id}`);
 
 if(subEl){
@@ -116,7 +143,7 @@ console.error("Update error:", err);
 }
 
 
-// ❌ REMOVE ITEM (LIVE)
+// ❌ REMOVE ITEM
 function removeItemLive(id){
 
 fetch("../../api/cart/remove.php",{
@@ -135,7 +162,7 @@ console.error("Remove error:", err);
 }
 
 
-// 💰 TOTAL CALCULATE (AUTO)
+// 💰 TOTAL
 function updateTotal(){
 
 let subs = document.querySelectorAll("[id^='sub-']");

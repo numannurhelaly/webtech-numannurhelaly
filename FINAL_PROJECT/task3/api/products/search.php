@@ -6,17 +6,25 @@ $db = new Database();
 $conn = $db->connect();
 
 $q = $_GET['q'] ?? "";
-$min = $_GET['min'] ?? 0;
-$max = $_GET['max'] ?? 999999;
+$min = $_GET['min'] ?? "";
+$max = $_GET['max'] ?? "";
 
-$min = max(0,(int)$min);
-$max = max($min,(int)$max);
+$sql = "SELECT * FROM products WHERE name LIKE ?";
+$params = ["%$q%"];
 
-$stmt = $conn->prepare(
-"SELECT * FROM products WHERE name LIKE ? AND price BETWEEN ? AND ?"
-);
+// ✅ MIN filter
+if($min !== ""){
+    $sql .= " AND price >= ?";
+    $params[] = (float)$min;
+}
 
-$stmt->execute(["%$q%",$min,$max]);
+// ✅ MAX filter
+if($max !== ""){
+    $sql .= " AND price <= ?";
+    $params[] = (float)$max;
+}
+
+$stmt = $conn->prepare($sql);
+$stmt->execute($params);
 
 echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
-?>
