@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Optional clean URL support for Apache mod_rewrite.
+# Query-string routes still work without this file.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^products/?$ index.php?page=products [QSA,L]
+RewriteRule ^cart/?$ index.php?page=cart [QSA,L]
+RewriteRule ^product/([0-9]+)/?$ index.php?page=product-details&id=$1 [QSA,L]
+RewriteRule ^category/([0-9]+)/?$ index.php?page=category&id=$1 [QSA,L]
+RewriteRule ^brand/([0-9]+)/?$ index.php?page=brand&id=$1 [QSA,L]
