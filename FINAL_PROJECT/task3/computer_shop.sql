@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2026 at 10:33 PM
+-- Generation Time: May 17, 2026 at 10:58 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -57,7 +57,8 @@ INSERT INTO `brands` (`id`, `name`, `category_id`, `created_at`) VALUES
 (16, 'PENDRIVE', 14, '2026-05-16 16:06:48'),
 (17, 'Microlab', 12, '2026-05-16 19:46:27'),
 (18, 'APPLE', 67, '2026-05-16 20:12:36'),
-(19, 'FENTECH', 18, '2026-05-16 20:19:38');
+(19, 'FENTECH', 18, '2026-05-16 20:19:38'),
+(20, 'RYZEN', 20, '2026-05-17 08:51:27');
 
 -- --------------------------------------------------------
 
@@ -104,7 +105,8 @@ INSERT INTO `categories` (`id`, `name`, `parent_id`, `created_at`) VALUES
 (13, 'POWER SUPPLY', NULL, '2026-05-16 15:58:30'),
 (14, 'PENDRIVE', NULL, '2026-05-16 15:58:44'),
 (17, 'Sound Box', NULL, '2026-05-16 19:45:22'),
-(18, 'JOYSTICK', NULL, '2026-05-16 20:18:58');
+(18, 'JOYSTICK', NULL, '2026-05-16 20:18:58'),
+(19, 'CPU', NULL, '2026-05-17 08:51:45');
 
 -- --------------------------------------------------------
 
@@ -184,7 +186,8 @@ INSERT INTO `products` (`id`, `name`, `description`, `manufacturer_review`, `pri
 (25, 'Microlab M-590 2.1 Speaker', 'sound speaker.3 in 1', 'GOOD', 6999.00, 17, 17, '1778960960_m590-1-500x500-500x500.jpg', 56, '2026-05-16 19:49:20'),
 (27, 'LogiTech Headphone', 'Zone-300-White', 'ONE of the best', 2090.00, 9, 12, '1778962129_Logitech-ZONE-300-White.jpg', 7, '2026-05-16 20:08:49'),
 (28, 'MacBook M4 Pro', '16/512GB\r\nColor-Ash\r\n', 'best', 519900.00, 2, 18, '1778962645_img-MacBook-Pro-Retina-16-Inch-24323-scaled-1250x1250.jpg', 5, '2026-05-16 20:17:25'),
-(29, 'FENTECH JOYSTICK', 'Model:WGP13S \r\nCOLOR:ALL COLOR', 'AVERAGE', 3599.00, 18, 19, '1778962967_WGP13S-GABUNGAN.jpg', 39, '2026-05-16 20:22:47');
+(29, 'FENTECH JOYSTICK', 'Model:WGP13S \r\nCOLOR:ALL COLOR', 'AVERAGE', 3599.00, 18, 19, '1778962967_WGP13S-GABUNGAN.jpg', 39, '2026-05-16 20:22:47'),
+(30, 'AMD RYZEN CPU', 'RYZEN 5 5600X', 'BEST', 17000.00, 19, 20, '1779007989_AMD-Ryzen-5-5600X-6-core-12.jpg', 100, '2026-05-17 08:53:09');
 
 -- --------------------------------------------------------
 
@@ -288,7 +291,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `cart`
@@ -300,7 +303,7 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -318,7 +321,7 @@ ALTER TABLE `order_items`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `reviews`
